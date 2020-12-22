@@ -8,7 +8,15 @@ tags:
 
   1. 安装Node.js和配置好Node.js环境;
   2. 安装Git和配置好Git环境;
-  3. Github账户注册和新建项目，项目必须要遵守格式：账户名.github.io,并且需要勾选Initialize this repository with a README
+  3. Github账户注册和新建项目
+   * 登陆github 点击这里新建一个仓储
+   ![新建一个仓储](images/create-repository.png "Optional title")
+
+   * 按下面步骤操作，项目必须要遵守格式：账户名.github.io,并且需要勾选Initialize this repository with a README
+    ![操作步骤](images/create-steps.png "Optional title")
+
+   * 然后这个仓储就创建好了，图中的地址一定要记好，将Hexo与Github page联系起来的时候会用到
+    ![创建成功](images/create-finished.png "Optional title")
 
 ## 安装hexo
 
@@ -50,9 +58,30 @@ permalink_defaults:
 
 ```
 
-其中可以在 [hexo Themes] (https://hexo.io/themes/) 浏览更多主题，然后在 blog 文件夹下打开cmd
+其中可以在 [hexo Themes](https://hexo.io/themes/) 浏览更多主题
 
-输入命令：`git clone https://github.com/iissnan/hexo-theme-nextthemes/next（next为主题名字）`，来获得更多主题
+以安装 `BlueLake` 主题为例：
+ 1. 安装主题
+ 在 blog 文件夹下打开cmd，输入命令：`git clone https://github.com/iissnan/hexo-theme-nextthemes/next（next为主题名字）`，来获得更多主题
+ ```
+ git clone https://github.com/chaooo/hexo-theme-BlueLake.git themes/BlueLake
+ ```
+
+ 2. 安装主题渲染器
+ `BlueLake`是基于`jade`和`stylus`写的，所以需要安装`hexo-renderer-jade`和`hexo-renderer-stylus`来渲染
+ ```
+ npm install hexo-renderer-jade@0.3.0 --save
+ npm install hexo-renderer-stylus --save
+ ```
+ 3. 启用主题
+ 打开根`_config.yml`配置文件，找到`theme`字段，将其值改为`BlueLake`(先确认主题文件夹名称是否为BlueLake)
+
+ 4. 更新主题
+ 今后若主题添加了新功能正是您需要的，您可以直接git pull来更新主题。
+  ```
+   cd themes/BlueLake
+   git pull
+  ```
 
 ## 将Hexo与Github page联系起来
 
@@ -71,6 +100,7 @@ permalink_defaults:
     ## Docs: https://hexo.io/docs/deployment.html
     deploy:
       type: git
+      //github上创建好的仓储地址：格式如下 https://账户:密码@你的仓储地址，也就是上面要你记住的地址
       repository: git@github.com:liumengjie2148/blog.github.io.git
       branch: master
 
@@ -88,6 +118,3 @@ permalink_defaults:
   2. 使用编辑器编好文章，那么就可以使用命令：`hexo d -g`，生成以及部署了
   [markdown语法]（http://www.markdown.cn/ ）
   3. 部署成功后访问你的地址：http://用户名.github.io, 那么将看到生成的文章
-
-
-
