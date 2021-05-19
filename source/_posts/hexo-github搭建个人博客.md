@@ -88,7 +88,7 @@ permalink_defaults:
   1. 设置Git的user name和email（如果是第一次的话）
   2. 输入`cd ~/.ssh`，检查是否有.ssh的文件夹;
   3. 输入ls，列出.ssh文件下的内容;
-  4. 如果没有.ssh文件夹，输入`ssh-keygen -t rsa -C '929762930@qq.com'`，连续三个回车，生成密钥，
+  4. 如果没有.ssh文件夹，输入`ssh-keygen -t rsa -C '你的邮箱'`，连续三个回车，生成密钥，
     最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：C:\Users\Administrator\.ssh）。
   5. 使用`cd id_rsa.pub`命令进入id_rsa.pub目录,再使用`more id_rsa.pub`命令查看密钥的内容;
   6. 登录Github，点击头像下的settings，添加ssh: 新建一个new ssh key，将id_rsa.pub文件里的内容复制上去;
